@@ -33,7 +33,7 @@ pub struct NoteReqPath {
 }
 
 #[post("/note/{projectid}/{mrid}")]
-async fn note<'a>(settings: web::Data<Settings>, auth: BasicAuth, path: web::Path<NoteReqPath>, data: web::Json<NoteReq>) -> impl Responder {
+async fn note(settings: web::Data<Settings>, auth: BasicAuth, path: web::Path<NoteReqPath>, data: web::Json<NoteReq>) -> impl Responder {
     let target = match find_target(&settings.targets, &auth) {
         None => {
             info!("unauthorized access by user {} on project {}/MR {}", auth.user_id(), path.projectid, path.mrid);

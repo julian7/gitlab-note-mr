@@ -705,7 +705,6 @@ dependencies = [
  "actix-web-httpauth",
  "config",
  "log",
- "mime",
  "reqwest",
  "serde",
  "stderrlog",
