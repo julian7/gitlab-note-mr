@@ -25,6 +25,7 @@ impl Settings {
     pub fn read(configfile: &str) -> Result<Self, ConfigError> {
         let config = Config::builder()
             .set_default("bind", "0.0.0.0:8000")?
+            .set_default("gitlab_url", "https://gitlab.com")?
             .set_default("log.level", "info")?
             .add_source(File::with_name(&configfile[..]).required(false))
             .build()?;
